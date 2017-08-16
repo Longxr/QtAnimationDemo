@@ -11,8 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_group = new QParallelAnimationGroup(this);
-
     //scale
     QPropertyAnimation *pScaleAnimation1 = new QPropertyAnimation(ui->scaleButton, "geometry");
     pScaleAnimation1->setDuration(1000);
@@ -68,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent) :
     pOpacityGroup->addAnimation(pOpacityAnimation1);
     pOpacityGroup->addAnimation(pOpacityAnimation2);
 
+    m_group = new QParallelAnimationGroup(this);
     m_group->addAnimation(pScaleGroup);
     m_group->addAnimation(pPosGroup);
     m_group->addAnimation(pOpacityGroup);
